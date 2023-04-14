@@ -3,15 +3,22 @@ package org.example;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-public class MultipleChoice extends Question{
-    private ArrayList<String> answer;
-    private ArrayList<String> correctAnswer;
+public class MultipleChoice extends Question {
 
-    public MultipleChoice(String question, int points) {
-        super(question, points);
+    public MultipleChoice(String theQuestion, String theAnswer) {
+        super(theQuestion, theAnswer);
     }
 
-    public ArrayList<String> getAnswer() {
-        return answer;
+    @Override
+    public boolean checkAnswer(String answer) {
+
+        String actualAnswer = this.getTheAnswer();
+        if (answer.toUpperCase().equals(actualAnswer.toUpperCase())) {
+            return true;
+        } else {
+            return false;
+        }
+
     }
 }
+

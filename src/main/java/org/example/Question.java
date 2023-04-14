@@ -1,31 +1,25 @@
 package org.example;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public abstract class Question {
-    private String question;
+    private final String theQuestion;
+    private final String theAnswer;
 
-    private int points;
-
-    public Question(String question, int points) {
-        this.question = question;
-        this.points = points;
+    public Question(String theQuestion, String theAnswer) {
+        this.theQuestion = theQuestion;
+        this.theAnswer = theAnswer;
     }
 
-    public void printQuestion() {
-      System.out.println(question);
+    public abstract boolean checkAnswer(String answer);
+
+    public String getTheQuestion() {
+        return theQuestion;
     }
 
-    public int getPoints() {
-        return points;
+    public String getTheAnswer() {
+        return theAnswer;
     }
-
-    public void setPoints(int points) {
-        this.points = points;
-    }
-
-    public abstract int getAnswers();
-
-    public abstract void displayAnswers();
 
 }
